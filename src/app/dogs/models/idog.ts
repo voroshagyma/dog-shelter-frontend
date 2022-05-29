@@ -6,4 +6,5 @@ export interface IDog {
   adoptedAt?: Date;
   breed: string;
   description: string;
+  picture: string;
 }
