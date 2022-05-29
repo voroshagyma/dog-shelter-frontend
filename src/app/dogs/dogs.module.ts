@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { DogPageComponent } from './dog-page/dog-page.component';
 import { DogCardComponent } from './dog-card/dog-card.component';
 import { DogListComponent } from './dog-list/dog-list.component';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,9 @@ import { DogListComponent } from './dog-list/dog-list.component';
     DogListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCardModule,
+    MatButtonModule
   ],
   exports: [DogListComponent]
 })

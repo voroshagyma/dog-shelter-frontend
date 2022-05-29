@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IDog } from '../models/idog';
 
 @Component({
   selector: 'app-dog-card',
@@ -11,5 +12,8 @@ export class DogCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Input()
+  dog?: IDog;
 
 }

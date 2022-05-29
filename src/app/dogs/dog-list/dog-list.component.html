@@ -1,3 +1,5 @@
 <p>dog-list works!</p>
 
-number of dogs in the list: {{dogs.length}}
+<ng-container *ngFor="let dog of dogs">
+  <app-dog-card [dog]="dog"></app-dog-card>
+</ng-container>
