@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IDog } from './models/idog';
 
 
 @Injectable({
@@ -16,7 +18,7 @@ export class DogsService {
   create() { }
 
   findAll() {
-    return this.http.get(environment.apiUrl + this.route);
+    return this.http.get<IDog[]>(environment.apiUrl + this.route);
   }
 
   findOne() { }

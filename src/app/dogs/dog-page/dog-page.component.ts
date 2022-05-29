@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../dogs.service';
+import { IDog } from '../models/idog';
 
 @Component({
   selector: 'app-dog-page',
@@ -10,10 +11,10 @@ export class DogPageComponent implements OnInit {
 
   constructor(private readonly dogService: DogsService) { }
 
-
+  dogs: IDog[] = [];
 
   ngOnInit(): void {
-    this.dogService.findAll().subscribe(dogs => console.log(dogs));
+    this.dogService.findAll().subscribe(dogs => this.dogs = dogs);
   }
 
 }
