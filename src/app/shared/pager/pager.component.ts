@@ -30,6 +30,10 @@ export class PagerComponent implements OnInit {
   @Output()
   onNext = new EventEmitter<number>();
 
+  get numOfPages() {
+    return Math.ceil(this.totalNumOfItems / this.pageSize - 1);
+  }
+
   handlePrevious() {
 
     if (this.currentPage === 0) {
@@ -42,8 +46,7 @@ export class PagerComponent implements OnInit {
 
   handleNext() {
 
-    const maxIndex = Math.ceil(this.totalNumOfItems / this.pageSize - 1);
-    if (this.currentPage === maxIndex) {
+    if (this.currentPage === this.numOfPages) {
       return;
     }
 

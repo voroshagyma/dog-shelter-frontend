@@ -1,6 +1,11 @@
-<nav class="d-flex justify-content-end mt-3">
-    <ul class="pagination">
-        <li class="page-item" (click)="handlePrevious()"><a class="page-link">Previous</a></li>
-        <li class="page-item" (click)="handleNext()"><a class="page-link">Next</a></li>
-    </ul>
-</nav>
+<div class="d-flex justify-content-end mt-3 align-items-center">
+    <span class="me-2">Pages: {{currentPage + 1}} / {{numOfPages + 1}}</span>
+    <nav>
+        <ul class="pagination">
+            <li [ngClass]="{'disabled':currentPage === 0}" class="page-item" (click)="handlePrevious()"><a
+                    class="page-link">Previous</a></li>
+            <li [ngClass]="{'disabled':currentPage === numOfPages}" class="page-item" (click)="handleNext()"><a
+                    class="page-link">Next</a></li>
+        </ul>
+    </nav>
+</div>
