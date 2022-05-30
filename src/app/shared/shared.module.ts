@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PagerComponent } from './pager/pager.component';
 import { ErrorAlertComponent } from './error-alert/error-alert.component';
 import { RouterModule } from '@angular/router';
+import { SuccessAlertComponent } from './success-alert/success-alert.component';
 
 @NgModule({
   declarations: [
     PagerComponent,
-    ErrorAlertComponent
+    ErrorAlertComponent,
+    SuccessAlertComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     PagerComponent,
     ErrorAlertComponent,
-    RouterModule
+    RouterModule,
+    SuccessAlertComponent
   ]
 })
 export class SharedModule { }

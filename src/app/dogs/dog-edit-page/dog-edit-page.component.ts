@@ -29,6 +29,8 @@ export class DogEditPageComponent implements OnInit {
 
   private originalDog: IDog | null = null;
 
+  successEdigMsg: string = "";
+
   getDog(id: number) {
     this.dogsService.findOne(id)
       .subscribe(
@@ -49,7 +51,10 @@ export class DogEditPageComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.dogsService.update(this.originalDog?.id || -1, this.editForm.value).subscribe(e => console.log("path res", e));
+    this.dogsService.update(this.originalDog?.id || -1, this.editForm.value).subscribe(e => {
+      this.successEdigMsg = "Dog successfully edited!";
+      setTimeout(() => this.successEdigMsg = "", 2000);
+    });
   }
 
 }
