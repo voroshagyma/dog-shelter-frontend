@@ -23,9 +23,12 @@ export class DogAddPageComponent implements OnInit {
     adoptedAt: null,
     picture: ""
   };
-
+  successEdigMsg: string = "";
 
   addDog(dog: IDog) {
-    this.dogsService.create(dog).subscribe(e => console.log("added", e));
+    this.dogsService.create(dog).subscribe(e => {
+      this.successEdigMsg = "Dog successfully saved!";
+      setTimeout(() => this.successEdigMsg = "", 2000);
+    });
   }
 }

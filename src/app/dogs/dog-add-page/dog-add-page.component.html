@@ -1,1 +1,14 @@
-<app-dog-edit-form [dog]="dog" (onSubmit)="addDog($event)"></app-dog-edit-form>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-success-alert *ngIf="successEdigMsg" [message]="successEdigMsg"></app-success-alert>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <button type="button" class="btn btn-secondary" routerLink="/">Back</button>
+
+      <app-dog-edit-form [dog]="dog" (onSubmit)="addDog($event)"></app-dog-edit-form>
+    </div>
+  </div>
+</div>
