@@ -15,7 +15,19 @@ export class DogsService {
 
   private readonly route = "/dogs"
 
-  create() { }
+  create(dog: IDog) {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    return this.http.post<IDog>(environment.apiUrl + this.route,
+      dog,
+      httpOptions
+    );
+  }
 
   findAll() {
     return this.http.get<IDog[]>(environment.apiUrl + this.route);
@@ -31,7 +43,6 @@ export class DogsService {
   }
 
   update(id: number, dog: IDog) {
-    console.log(id, dog);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

@@ -30,6 +30,7 @@ export class DogEditFormComponent implements OnInit {
       this.editForm.get('name')?.setValue(dog.name);
       this.editForm.get('age')?.setValue(dog.age);
       this.editForm.get('breed')?.setValue(dog.breed);
+      this.editForm.get('description')?.setValue(dog.description);
       this.editForm.get('foundAt')?.setValue(formatDate(dog.foundAt, 'yyyy-MM-dd', 'en'));
 
       const adoptedAt = dog.adoptedAt;
@@ -43,6 +44,7 @@ export class DogEditFormComponent implements OnInit {
   editForm = new FormGroup({
     name: new FormControl('', Validators.required),
     breed: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
     age: new FormControl('', Validators.min(0)),
     foundAt: new FormControl('', Validators.required),
     adoptedAt: new FormControl(''),

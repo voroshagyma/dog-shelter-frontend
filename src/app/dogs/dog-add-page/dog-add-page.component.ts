@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DogsService } from '../dogs.service';
 import { IDog } from '../models/idog';
 
 @Component({
@@ -8,7 +9,7 @@ import { IDog } from '../models/idog';
 })
 export class DogAddPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly dogsService: DogsService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,6 @@ export class DogAddPageComponent implements OnInit {
 
 
   addDog(dog: IDog) {
-    console.log("adding", dog);
+    this.dogsService.create(dog).subscribe(e => console.log("added", e));
   }
 }
