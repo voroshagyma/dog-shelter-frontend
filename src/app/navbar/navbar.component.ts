@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IUser } from '../users/models/iuser';
 import { UsersService } from '../users/users.service';
 
@@ -9,7 +9,7 @@ import { UsersService } from '../users/users.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private readonly usersService: UsersService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -17,8 +17,11 @@ export class NavbarComponent implements OnInit {
   @Input()
   user?: IUser;
 
+  @Output()
+  onLogout: EventEmitter<void> = new EventEmitter();
+
   logout() {
-    this.usersService.logout();
+    this.onLogout.emit();
   }
 
 }

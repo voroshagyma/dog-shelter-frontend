@@ -17,4 +17,8 @@ export class AppComponent {
     this.usersService.onUserChanged.subscribe(e => this.user = e);
   }
 
+  handleLogout() {
+    this.usersService.logout();
+  }
+
 }
