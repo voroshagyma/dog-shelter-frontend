@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dogs-search-form',
@@ -12,4 +13,14 @@ export class DogsSearchFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.searchForm.value);
+  }
+
+  searchForm = new FormGroup({
+    name: new FormControl(''),
+    breed: new FormControl(''),
+    age: new FormControl(''),
+  });
 }

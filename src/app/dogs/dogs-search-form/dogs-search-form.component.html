@@ -1,1 +1,13 @@
-<p>dogs-search-form works!</p>
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name">
+
+    <label for="breed">Breed: </label>
+    <input id="breed" type="text" formControlName="breed">
+
+    <label for="age">Age: </label>
+    <input id="age" type="number" formControlName="age">
+
+    <button type="submit" [disabled]="!searchForm.valid">Submit</button>
+</form>
