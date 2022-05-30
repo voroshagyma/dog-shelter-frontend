@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../dogs.service';
 import { IDog } from '../models/idog';
+import { IDogSearch } from '../models/idog-search';
 
 @Component({
   selector: 'app-dog-page',
@@ -41,4 +42,8 @@ export class DogPageComponent implements OnInit {
     this.slicedDogs = this.dogs.slice(startIndex, endIndex);
   }
 
+
+  handleSearch(term: IDogSearch) {
+    console.log("term", term);
+  }
 }

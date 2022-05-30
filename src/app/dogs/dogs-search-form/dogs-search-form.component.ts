@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IDogSearch } from '../models/idog-search';
 
 @Component({
   selector: 'app-dogs-search-form',
@@ -13,9 +14,8 @@ export class DogsSearchFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.searchForm.value);
+  handleSubmit() {
+    this.onSubmit.emit(this.searchForm.value);
   }
 
   searchForm = new FormGroup({
@@ -23,4 +23,7 @@ export class DogsSearchFormComponent implements OnInit {
     breed: new FormControl(''),
     age: new FormControl('', Validators.min(0)),
   });
+
+  @Output()
+  onSubmit = new EventEmitter<IDogSearch>();
 }
