@@ -15,7 +15,13 @@ export class LoginPageComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.usersService.login(this.loginForm.value).subscribe(e => console.log("logged in user", e));
+
+    this.usersService.login(this.loginForm.value)
+      .subscribe(
+        e => { console.log("user ok", e); },
+        error => console.log("user err", error)
+      );
+
   }
 
   loginForm = new FormGroup({
