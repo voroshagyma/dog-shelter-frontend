@@ -1,27 +1,35 @@
-# DogShelterFrontend
+# Practicing Angular - Dog Shelter front end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+This is a very simple Angular project I use to practice Angular.
 
-## Development server
+## What the user can do
+1. list the dogs
+2. search the dogs by name, age and breed
+3. paginate the list of dogs by 20
+4. login: {username: 'john', password: 'changeme'}
+5. add dog if logged in
+6. edit dog if logged in
+7. delete dog if logged in
+8. logout
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Techniques used
+1. Bootstrap
+2. routing
+3. route guards
+4. reactive forms
+5. form validation
+6. jwt
+7. local auth
+8. separate modules for different features
+9. reusable components
+10. services
 
-## Code scaffolding
+## TODO
+1. better understanding of observables
+2. store jwt in local storage
+3. better UI
+4. CRUD for users
+5. unit testing
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Backend
+[https://github.com/voroshagyma/dog-shelter-backend](https://github.com/voroshagyma/dog-shelter-backend)
