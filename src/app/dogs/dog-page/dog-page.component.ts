@@ -31,7 +31,9 @@ export class DogPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.usersService.$user?.subscribe(e => this.user = e);
+    //this.usersService.$user?.subscribe(e => this.user = e);
+    this.usersService.onUserChanged.subscribe(e => this.user = e);
+    this.user = this.usersService.user;
 
     this.dogService.findAll().subscribe(dogs => {
       this.dogs = dogs;

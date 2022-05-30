@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { IUser } from './models/iuser';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,10 @@ export class UsersService {
 
   constructor(private readonly http: HttpClient) { }
 
-  $user: Observable<IUser> | null = null
+  @Output()
+  onUserChanged: EventEmitter<IUser | null> = new EventEmitter();
+
+  user: IUser | null = null;
 
   login(user: IUser) {
 
@@ -21,16 +24,21 @@ export class UsersService {
       })
     };
 
-    const result = this.http.post<IUser>(`${environment.apiUrl}/auth/login`,
+    return this.http.post<IUser>(`${environment.apiUrl}/auth/login`,
       JSON.stringify(user),
       httpOptions
-    );
-
-    this.$user = result;
-
-    return result;
+    )
+      .pipe(
+        tap(e => {
+          this.user = e;
+          this.onUserChanged.emit(this.user);
+        })
+      );
   }
 
-  logout() { }
+  logout() {
+    this.user = null;
+    this.onUserChanged.emit(this.user);
+  }
 
 }
