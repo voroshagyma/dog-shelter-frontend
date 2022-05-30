@@ -20,10 +20,10 @@ export class DogEditPageComponent implements OnInit {
 
 
   editForm = new FormGroup({
-    name: new FormControl(''),
-    breed: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    breed: new FormControl('', Validators.required),
     age: new FormControl('', Validators.min(0)),
-    foundAt: new FormControl(''),
+    foundAt: new FormControl('', Validators.required),
     adoptedAt: new FormControl(''),
   });
 
