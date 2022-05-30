@@ -1,8 +1,16 @@
 <div *ngIf="dog" class="card" style="width: 18rem;">
   <img src={{dog.picture}} class="card-img-top" alt="...">
+  <div class="card-header">
+    {{dog.name}}, {{dog.age}}
+  </div>
   <div class="card-body">
-    <h5 class="card-title">{{dog.name}} - {{dog.breed}}</h5>
+    <h5 class="card-title">{{dog.breed}}</h5>
     <p class="card-text">{{dog.description}}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    Found at: {{dog.foundAt |date: "mediumDate"}}
+    <br>
+    Adopted at: {{dog.adoptedAt | date: "mediumDate"}}
   </div>
 </div>
