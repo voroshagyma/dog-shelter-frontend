@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -30,7 +30,19 @@ export class DogsService {
     }));
   }
 
-  update() { }
+  update(id: number, dog: IDog) {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
+    return this.http.patch<IDog>(environment.apiUrl + this.route + `/${id}`,
+      dog,
+      httpOptions
+    );
+  }
 
   remove() { }
 }

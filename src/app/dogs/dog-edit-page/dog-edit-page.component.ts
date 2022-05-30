@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DogsService } from '../dogs.service';
+import { IDog } from '../models/idog';
 
 @Component({
   selector: 'app-dog-edit-page',
@@ -26,11 +27,13 @@ export class DogEditPageComponent implements OnInit {
     adoptedAt: new FormControl(''),
   });
 
+  private originalDog: IDog | null = null;
 
   getDog(id: number) {
     this.dogsService.findOne(id)
       .subscribe(
         e => {
+          this.originalDog = e;
           this.editForm.get('name')?.setValue(e.name);
           this.editForm.get('age')?.setValue(e.age);
           this.editForm.get('breed')?.setValue(e.breed);
@@ -46,7 +49,7 @@ export class DogEditPageComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log("submitting: ", this.editForm.value);
+    this.dogsService.update(this.originalDog?.id || -1, this.editForm.value).subscribe(e => console.log("path res", e));
   }
 
 }
