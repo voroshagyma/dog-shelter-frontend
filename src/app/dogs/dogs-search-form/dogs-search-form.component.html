@@ -1,13 +1,21 @@
-<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="m-5">
 
-    <label for="name">Name: </label>
-    <input id="name" type="text" formControlName="name">
+    <div class="row">
+        <div class="col">
+            <label for="name" class="form-label">Name: </label>
+            <input id="name" class="form-control" type="text" formControlName="name">
+        </div>
+        <div class="col">
+            <label for="breed" class="form-label">Breed: </label>
+            <input id="breed" class="form-control" type="text" formControlName="breed">
+        </div>
+        <div class="col">
+            <label for="age" class="form-label">Age: </label>
+            <input id="age" class="form-control" type="number" formControlName="age">
+        </div>
+        <div class="col d-flex align-items-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!searchForm.valid">Submit</button>
+        </div>
+    </div>
 
-    <label for="breed">Breed: </label>
-    <input id="breed" type="text" formControlName="breed">
-
-    <label for="age">Age: </label>
-    <input id="age" type="number" formControlName="age">
-
-    <button type="submit" [disabled]="!searchForm.valid">Submit</button>
 </form>
