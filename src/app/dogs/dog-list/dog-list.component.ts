@@ -37,7 +37,5 @@ export class DogListComponent implements OnInit {
     }
 
     this.dogsMatrix = matrix;
-
-    console.log(this.dogsMatrix);
   }
 }

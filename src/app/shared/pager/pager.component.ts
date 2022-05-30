@@ -12,6 +12,7 @@ export class PagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Input()
   currentPage: number = 0;
 
   @Input()
@@ -19,6 +20,9 @@ export class PagerComponent implements OnInit {
 
   @Input()
   pageSize: number = 1;
+
+  @Input()
+  totalNumOfItems: number = 0;
 
   @Output()
   onPrevious = new EventEmitter<number>();
@@ -38,8 +42,7 @@ export class PagerComponent implements OnInit {
 
   handleNext() {
 
-    const maxIndex = Math.ceil(this.list.length / this.pageSize - 1);
-
+    const maxIndex = Math.ceil(this.totalNumOfItems / this.pageSize - 1);
     if (this.currentPage === maxIndex) {
       return;
     }

@@ -16,7 +16,7 @@ export class DogPageComponent implements OnInit {
   pageSize = 20;
 
   dogs: IDog[] = [];
-
+  dogsFiltered: IDog[] = [];
   dogsToDisplay: IDog[] = [];
 
   searchTerm: IDogSearch = {
@@ -33,11 +33,8 @@ export class DogPageComponent implements OnInit {
   }
 
   private calculateDogsToDisplay() {
-    let dogs = this.filterDogs(this.dogs, this.searchTerm);
-    console.log("filtered", dogs);
-    dogs = this.sliceDogs(dogs);
-    console.log("sliced", dogs);
-    this.dogsToDisplay = dogs;
+    this.dogsFiltered = this.filterDogs(this.dogs, this.searchTerm);
+    this.dogsToDisplay = this.sliceDogs(this.dogsFiltered);
   }
 
   private filterDogs(dogs: IDog[], term: IDogSearch) {
@@ -64,14 +61,11 @@ export class DogPageComponent implements OnInit {
 
   handleNext(value: number) {
     this.currentPage = value;
-    console.log(value);
     this.calculateDogsToDisplay();
   }
 
   handlePrevious(value: number) {
     this.currentPage = value;
-    console.log(value);
-
     this.calculateDogsToDisplay();
   }
 

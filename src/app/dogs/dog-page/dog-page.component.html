@@ -9,8 +9,10 @@
     </div>
     <div class="row">
         <div class="col justify-content-start">
-            <app-pager [pageSize]="pageSize" [list]="dogs" (onNext)="handleNext($event)"
-                (onPrevious)="handlePrevious($event)"></app-pager>
+            <app-pager [pageSize]="pageSize" [currentPage]="currentPage" [list]="dogsToDisplay"
+                [totalNumOfItems]="dogsFiltered.length" (onNext)="handleNext($event)"
+                (onPrevious)="handlePrevious($event)">
+            </app-pager>
         </div>
     </div>
 </div>
