@@ -1,9 +1,9 @@
 export interface IDog {
-  id: number;
+  id?: number;
   name: string;
   age: number;
-  foundAt: Date | string;
-  adoptedAt?: Date | null | string;
+  foundAt: Date;
+  adoptedAt?: Date | null;
   breed: string;
   description: string;
   picture: string;
