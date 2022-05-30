@@ -1,23 +1,23 @@
 <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand">Dog Shelter</a>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Dog Shelter</a>
 
-        <ul *ngIf="user" class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/dogs/add" aria-current="page" href="#">Add Dog</a>
-            </li>
-        </ul>
+    <ul *ngIf="user" class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dogs/add" aria-current="page" href="#">Add Dog</a>
+      </li>
+    </ul>
 
 
-        <div class="d-flex align-items-center">
-            <ng-container *ngIf="user">
-                {{user.username}}
-                <button (click)="logout()" class="ms-2 btn btn-outline-success" type="submit">Logout</button>
-            </ng-container>
-            <ng-container *ngIf="!user">
-                <button routerLink="login" class="ms-2 btn btn-outline-success" type="submit">Login</button>
-            </ng-container>
-        </div>
-
+    <div class="d-flex align-items-center">
+      <ng-container *ngIf="user">
+        {{user.username}}
+        <button (click)="logout()" class="ms-2 btn btn-outline-success" type="submit">Logout</button>
+      </ng-container>
+      <ng-container *ngIf="!user">
+        <button routerLink="login" class="ms-2 btn btn-outline-success" type="submit">Login</button>
+      </ng-container>
     </div>
+
+  </div>
 </nav>
