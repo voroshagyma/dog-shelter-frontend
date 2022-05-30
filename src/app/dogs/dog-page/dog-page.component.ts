@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IUser } from 'src/app/users/models/iuser';
 import { UsersService } from 'src/app/users/users.service';
 import { DogsService } from '../dogs.service';
 import { IDog } from '../models/idog';
@@ -26,9 +27,11 @@ export class DogPageComponent implements OnInit {
     name: ""
   };
 
+  user: IUser | null = null;
+
   ngOnInit(): void {
 
-    this.usersService.$user?.subscribe(e => console.log("user obs", e));
+    this.usersService.$user?.subscribe(e => this.user = e);
 
     this.dogService.findAll().subscribe(dogs => {
       this.dogs = dogs;

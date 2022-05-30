@@ -16,4 +16,6 @@ export class DogCardComponent implements OnInit {
   @Input()
   dog?: IDog;
 
+  @Input()
+  hasControls: boolean = false;
 }

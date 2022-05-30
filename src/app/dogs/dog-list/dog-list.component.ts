@@ -29,6 +29,9 @@ export class DogListComponent implements OnInit {
 
   dogsMatrix: IDog[][] = [];
 
+  @Input()
+  hasControls: boolean = false;
+
   private dogsToDogMatrix(dogs: IDog[]) {
     const matrix = [];
     const dogsCopy = dogs.slice();

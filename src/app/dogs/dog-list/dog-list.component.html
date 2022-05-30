@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row" *ngFor="let row of this.dogsMatrix">
     <div class="col" *ngFor="let dog of row">
-      <app-dog-card [dog]="dog"></app-dog-card>
+      <app-dog-card [hasControls]="hasControls" [dog]="dog"></app-dog-card>
     </div>
   </div>
 </div>
