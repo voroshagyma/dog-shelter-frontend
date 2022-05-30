@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DogPageComponent } from './dog-page/dog-page.component';
 import { DogCardComponent } from './dog-card/dog-card.component';
 import { DogListComponent } from './dog-list/dog-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { DogListComponent } from './dog-list/dog-list.component';
   ],
   imports: [
     CommonModule,
+    SharedModule
   ],
   exports: [DogListComponent]
 })
