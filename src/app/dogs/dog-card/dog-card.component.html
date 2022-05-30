@@ -6,7 +6,7 @@
   <div class="card-body">
     <h5 class="card-title">{{dog.breed}}</h5>
     <p class="card-text">{{dog.description}}</p>
-    <a *ngIf="hasControls" href="#" [routerLink]="['/dogs/' + dog.id]" class="btn btn-primary">Go somewhere</a>
+    <a *ngIf="hasControls" href="#" [routerLink]="['/dogs/' + dog.id]" class="btn btn-primary">Edit</a>
   </div>
   <div class="card-footer text-muted">
     Found at: {{dog.foundAt |date: "mediumDate"}}
