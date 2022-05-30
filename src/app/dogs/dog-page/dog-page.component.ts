@@ -14,7 +14,7 @@ export class DogPageComponent implements OnInit {
   dogs: IDog[] = [];
 
   ngOnInit(): void {
-    this.dogService.findAll().subscribe(dogs => this.dogs = dogs);
+    this.dogService.findAll().subscribe(dogs => this.dogs = dogs.slice(0, 20));
   }
 
 }
