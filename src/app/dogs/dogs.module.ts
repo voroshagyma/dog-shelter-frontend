@@ -8,6 +8,7 @@ import { DogsSearchFormComponent } from './dogs-search-form/dogs-search-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { DogEditPageComponent } from './dog-edit-page/dog-edit-page.component';
 import { DogAddPageComponent } from './dog-add-page/dog-add-page.component';
+import { DogEditFormComponent } from './dog-edit-form/dog-edit-form.component';
 @NgModule({
   declarations: [
     DogPageComponent,
@@ -15,7 +16,8 @@ import { DogAddPageComponent } from './dog-add-page/dog-add-page.component';
     DogListComponent,
     DogsSearchFormComponent,
     DogEditPageComponent,
-    DogAddPageComponent
+    DogAddPageComponent,
+    DogEditFormComponent
   ],
   imports: [
     CommonModule,
