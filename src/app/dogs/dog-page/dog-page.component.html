@@ -1,12 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <app-dog-list [dogs]="dogs"></app-dog-list>
+            <app-dog-list [dogs]="slicedDogs"></app-dog-list>
         </div>
     </div>
     <div class="row">
         <div class="col justify-content-start">
-            <app-pager></app-pager>
+            <app-pager [pageSize]="pageSize" [list]="dogs" (onNext)="handleNext($event)"
+                (onPrevious)="handlePrevious($event)"></app-pager>
         </div>
     </div>
 </div>
