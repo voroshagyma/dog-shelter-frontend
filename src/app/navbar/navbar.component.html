@@ -1,6 +1,14 @@
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand">Dog Shelter</a>
+
+        <ul *ngIf="user" class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/dogs/add" aria-current="page" href="#">Add Dog</a>
+            </li>
+        </ul>
+
+
         <div class="d-flex align-items-center">
             <ng-container *ngIf="user">
                 {{user.username}}
