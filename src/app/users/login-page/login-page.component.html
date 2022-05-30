@@ -1,3 +1,5 @@
+<app-error-alert *ngIf="loginErrorMessage" [message]="loginErrorMessage"></app-error-alert>
+
 <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" class="m-5">
 
     <div class="row justify-content-center">
