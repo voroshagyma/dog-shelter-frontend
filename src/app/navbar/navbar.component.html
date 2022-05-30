@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center">
             <ng-container *ngIf="user">
                 {{user.username}}
-                <button (onclick)="logout()" class="ms-2 btn btn-outline-success" type="submit">Logout</button>
+                <button (click)="logout()" class="ms-2 btn btn-outline-success" type="submit">Logout</button>
             </ng-container>
             <ng-container *ngIf="!user">
                 <button routerLink="login" class="ms-2 btn btn-outline-success" type="submit">Login</button>
