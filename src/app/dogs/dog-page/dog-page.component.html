@@ -4,12 +4,12 @@
     </div>
     <div class="row">
         <div class="col">
-            <app-dog-list [dogs]="slicedDogs"></app-dog-list>
+            <app-dog-list [dogs]="dogsToDisplay"></app-dog-list>
         </div>
     </div>
     <div class="row">
         <div class="col justify-content-start">
-            <app-pager [pageSize]="pageSize" [list]="dogs" (onNext)="handleNext($event)"
+            <app-pager [pageSize]="pageSize" [currentPage]="currentPage" [list]="dogs" (onNext)="handleNext($event)"
                 (onPrevious)="handlePrevious($event)"></app-pager>
         </div>
     </div>

@@ -38,7 +38,7 @@ export class PagerComponent implements OnInit {
 
   handleNext() {
 
-    const maxIndex = Math.ceil(this.list.length / this.pageSize);
+    const maxIndex = Math.ceil(this.list.length / this.pageSize - 1);
 
     if (this.currentPage === maxIndex) {
       return;
