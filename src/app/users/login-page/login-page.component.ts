@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UsersService } from '../users.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService, private readonly router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +21,7 @@ export class LoginPageComponent implements OnInit {
 
     this.usersService.login(this.loginForm.value)
       .subscribe(
-        e => { console.log("user ok", e); },
+        e => this.router.navigate(["/"]),
         error => {
           this.loginErrorMessage = "Login failed. Please check your credentials!";
           setTimeout(() => this.loginErrorMessage = "", 2000);
