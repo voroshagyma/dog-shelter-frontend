@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dogs-search-form',
@@ -21,6 +21,6 @@ export class DogsSearchFormComponent implements OnInit {
   searchForm = new FormGroup({
     name: new FormControl(''),
     breed: new FormControl(''),
-    age: new FormControl(''),
+    age: new FormControl('', Validators.min(0)),
   });
 }
