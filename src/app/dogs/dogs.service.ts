@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IDog } from './models/idog';
 
@@ -22,7 +22,12 @@ export class DogsService {
   }
 
   findOne(id: number) {
-    return this.http.get<IDog[]>(environment.apiUrl + this.route + `/${id}`);
+    return this.http.get<IDog>(environment.apiUrl + this.route + `/${id}`).pipe(tap(e => {
+      e.foundAt = new Date(e.foundAt);
+      if (e.adoptedAt) {
+        e.adoptedAt = new Date(e.adoptedAt);
+      }
+    }));
   }
 
   update() { }

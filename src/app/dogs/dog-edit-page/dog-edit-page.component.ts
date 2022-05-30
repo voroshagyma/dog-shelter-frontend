@@ -1,4 +1,6 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DogsService } from '../dogs.service';
 
@@ -15,12 +17,36 @@ export class DogEditPageComponent implements OnInit {
     console.log(this.route.paramMap.subscribe(e => this.getDog(parseInt(e.get("id") || ""))));
   }
 
+
+  editForm = new FormGroup({
+    name: new FormControl(''),
+    breed: new FormControl(''),
+    age: new FormControl('', Validators.min(0)),
+    foundAt: new FormControl(''),
+    adoptedAt: new FormControl(''),
+  });
+
+
   getDog(id: number) {
     this.dogsService.findOne(id)
       .subscribe(
-        e => console.log("dog", e),
+        e => {
+          this.editForm.get('name')?.setValue(e.name);
+          this.editForm.get('age')?.setValue(e.age);
+          this.editForm.get('breed')?.setValue(e.breed);
+          this.editForm.get('foundAt')?.setValue(formatDate(e.foundAt, 'yyyy-MM-dd', 'en'));
+
+          const adoptedAt = e.adoptedAt;
+          if (adoptedAt) {
+            this.editForm.get('adoptedAt')?.setValue(formatDate(adoptedAt, 'yyyy-MM-dd', 'en'));
+          }
+        },
         err => console.log("err", err)
       );
+  }
+
+  handleSubmit() {
+    console.log("submitting: ", this.editForm.value);
   }
 
 }
