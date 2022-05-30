@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DogsModule } from './dogs/dogs.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DogsModule } from './dogs/dogs.module';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DogsModule
+    DogsModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
