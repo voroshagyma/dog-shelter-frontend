@@ -44,5 +44,7 @@ export class DogsService {
     );
   }
 
-  remove() { }
+  remove(id: number) {
+    return this.http.delete<number>(environment.apiUrl + this.route + `/${id}`);
+  }
 }

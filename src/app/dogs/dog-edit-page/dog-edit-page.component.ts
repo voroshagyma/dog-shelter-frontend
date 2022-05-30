@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DogsService } from '../dogs.service';
 import { IDog } from '../models/idog';
 
@@ -12,7 +12,7 @@ import { IDog } from '../models/idog';
 })
 export class DogEditPageComponent implements OnInit {
 
-  constructor(private readonly route: ActivatedRoute, private readonly dogsService: DogsService) { }
+  constructor(private readonly route: ActivatedRoute, private readonly dogsService: DogsService, private readonly router: Router) { }
 
   ngOnInit(): void {
     console.log(this.route.paramMap.subscribe(e => this.getDog(parseInt(e.get("id") || ""))));
@@ -30,6 +30,10 @@ export class DogEditPageComponent implements OnInit {
   private originalDog: IDog | null = null;
 
   successEdigMsg: string = "";
+
+  deleteDog() {
+    this.dogsService.remove(this.originalDog?.id || -1).subscribe(e => this.router.navigate(["/"]));
+  }
 
   getDog(id: number) {
     this.dogsService.findOne(id)
