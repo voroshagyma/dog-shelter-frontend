@@ -1,9 +1,15 @@
-<nav *ngIf="user" class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand">Dog Shelter</a>
-        <form class="d-flex align-items-center">
-            {{user.username}}
-            <button (onclick)="logout()" class="ms-2 btn btn-outline-success" type="submit">Logout</button>
-        </form>
+        <div class="d-flex align-items-center">
+            <ng-container *ngIf="user">
+                {{user.username}}
+                <button (onclick)="logout()" class="ms-2 btn btn-outline-success" type="submit">Logout</button>
+            </ng-container>
+            <ng-container *ngIf="!user">
+                <button routerLink="login" class="ms-2 btn btn-outline-success" type="submit">Login</button>
+            </ng-container>
+        </div>
+
     </div>
 </nav>

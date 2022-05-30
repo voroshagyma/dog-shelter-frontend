@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   }
 
   @Input()
-  user?: IUser;
+  user: IUser | null = null;
 
   @Output()
   onLogout: EventEmitter<void> = new EventEmitter();
