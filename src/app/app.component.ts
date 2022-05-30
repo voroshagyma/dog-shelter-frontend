@@ -14,7 +14,7 @@ export class AppComponent {
   user: IUser | null = null;
 
   ngOnInit() {
-    this.usersService.onUserChanged.subscribe(e => this.user = e)
+    this.usersService.onUserChanged.subscribe(e => this.user = e);
   }
 
 }

@@ -1,8 +1,9 @@
-<nav class="navbar navbar-light bg-light">
+<nav *ngIf="user" class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand">Dog Shelter</a>
-        <form class="d-flex">
-            <button (onclick)="logout()" class="btn btn-outline-success" type="submit">Logout</button>
+        <form class="d-flex align-items-center">
+            {{user.username}}
+            <button (onclick)="logout()" class="ms-2 btn btn-outline-success" type="submit">Logout</button>
         </form>
     </div>
 </nav>

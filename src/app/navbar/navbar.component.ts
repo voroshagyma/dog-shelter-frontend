@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IUser } from '../users/models/iuser';
 import { UsersService } from '../users/users.service';
 
 @Component({
@@ -12,6 +13,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Input()
+  user?: IUser;
 
   logout() {
     this.usersService.logout();
