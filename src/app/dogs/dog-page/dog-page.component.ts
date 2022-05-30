@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/users/users.service';
 import { DogsService } from '../dogs.service';
 import { IDog } from '../models/idog';
 import { IDogSearch } from '../models/idog-search';
@@ -10,7 +11,7 @@ import { IDogSearch } from '../models/idog-search';
 })
 export class DogPageComponent implements OnInit {
 
-  constructor(private readonly dogService: DogsService) { }
+  constructor(private readonly dogService: DogsService, private readonly usersService: UsersService) { }
 
   currentPage: number = 0;
   pageSize = 20;
@@ -26,6 +27,9 @@ export class DogPageComponent implements OnInit {
   };
 
   ngOnInit(): void {
+
+    this.usersService.$user?.subscribe(e => console.log("user obs", e));
+
     this.dogService.findAll().subscribe(dogs => {
       this.dogs = dogs;
       this.calculateDogsToDisplay();
