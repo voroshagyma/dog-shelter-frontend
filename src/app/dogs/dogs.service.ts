@@ -21,7 +21,9 @@ export class DogsService {
     return this.http.get<IDog[]>(environment.apiUrl + this.route);
   }
 
-  findOne() { }
+  findOne(id: number) {
+    return this.http.get<IDog[]>(environment.apiUrl + this.route + `/${id}`);
+  }
 
   update() { }
 
