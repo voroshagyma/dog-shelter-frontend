@@ -6,12 +6,14 @@ import { DogListComponent } from './dog-list/dog-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { DogsSearchFormComponent } from './dogs-search-form/dogs-search-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DogEditPageComponent } from './dog-edit-page/dog-edit-page.component';
 @NgModule({
   declarations: [
     DogPageComponent,
     DogCardComponent,
     DogListComponent,
-    DogsSearchFormComponent
+    DogsSearchFormComponent,
+    DogEditPageComponent
   ],
   imports: [
     CommonModule,
