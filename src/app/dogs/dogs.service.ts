@@ -31,7 +31,7 @@ export class DogsService {
   }
 
   update(id: number, dog: IDog) {
-
+    console.log(id, dog);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
