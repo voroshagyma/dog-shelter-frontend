@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { UsersService } from '../users/users.service';
 import { IDog } from './models/idog';
 
 
@@ -10,7 +11,7 @@ import { IDog } from './models/idog';
 })
 export class DogsService {
 
-  constructor(private readonly http: HttpClient) {
+  constructor(private readonly http: HttpClient, private readonly usersService: UsersService) {
   }
 
   private readonly route = "/dogs"
@@ -20,6 +21,7 @@ export class DogsService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        "Authorization": "Bearer " + this.usersService.user?.jwtToken
       })
     };
 
@@ -46,6 +48,7 @@ export class DogsService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        "Authorization": "Bearer " + this.usersService.user?.jwtToken
       })
     };
 
@@ -56,6 +59,14 @@ export class DogsService {
   }
 
   remove(id: number) {
-    return this.http.delete<number>(environment.apiUrl + this.route + `/${id}`);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        "Authorization": "Bearer " + this.usersService.user?.jwtToken
+      })
+    };
+
+    return this.http.delete<number>(environment.apiUrl + this.route + `/${id}`, httpOptions);
   }
 }
